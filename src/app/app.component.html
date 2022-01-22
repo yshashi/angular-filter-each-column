@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-title">
+      <h1>Filter on Each Column</h1>
+      <div class="card-body"></div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Freshness</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Comment</th>
+            <th scope="col">Date</th>
+          </tr>
+          <tr>
+            <th *ngFor="let item of displayedColumns">
+              <input
+                class="form-control"
+                (keyup)="filter($event, item)"
+                type="text"
+              />
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of filterData">
+            <td>{{ row.productName }}</td>
+            <td>{{ row.productCategory }}</td>
+            <td>{{ row.freshness }}</td>
+            <td>{{ row.description }}</td>
+            <td>{{ row.price }}</td>
+            <td>{{ row.comment }}</td>
+            <td>{{ row.date | date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
